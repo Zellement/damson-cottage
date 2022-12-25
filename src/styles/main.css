@@ -97,6 +97,6 @@ Content
 Active Nav Item - Header
 -------------------------- */
 
-.primaryNav-item-is-active {
-  @apply underline;
+.primaryNav-item-is-active .primaryNav__icon {
+  @apply text-olive-500;
 }

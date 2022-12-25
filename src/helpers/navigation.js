@@ -11,6 +11,18 @@ const primaryNavigation = [
     name: "Bookings",
     url: "/bookings/",
   },
+  {
+    name: "What To Do",
+    url: "/what-to-do/",
+  },
+  {
+    name: "Gallery",
+    url: "/gallery/",
+  },
+  {
+    name: "Find & Contact Us",
+    url: "/contact/",
+  },
 ]
 
 export default primaryNavigation
