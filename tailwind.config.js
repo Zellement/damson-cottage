@@ -32,7 +32,36 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Open Sans", "sans-serif"],
+        sans: ["Hanken", "sans-serif"],
+        serif: ["Beautiful People", "Georgia"],
+      },
+      colors: {
+        olive: {
+          DEFAULT: "#989C76",
+          50: "#E8E9E1",
+          100: "#DFE0D5",
+          200: "#CDCFBD",
+          300: "#BCBEA5",
+          400: "#AAAD8E",
+          500: "#989C76",
+          600: "#7B7E5B",
+          700: "#5B5E44",
+          800: "#3C3D2C",
+          900: "#1C1D15",
+        },
+        teal: {
+          DEFAULT: "#6B9AA9",
+          50: "#DFE9EC",
+          100: "#D2E0E5",
+          200: "#B8CFD6",
+          300: "#9FBDC7",
+          400: "#85ACB8",
+          500: "#6B9AA9",
+          600: "#517D8B",
+          700: "#3C5D68",
+          800: "#283D44",
+          900: "#131D21",
+        },
       },
       zIndex: {
         "-10": "-10",

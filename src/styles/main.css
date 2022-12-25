@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Beautiful People";
+  src: url("../fonts/beautifulpeople.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hanken";
+  src: url("../fonts/hanken.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
 html, body {
   min-height: 101%;
 }
@@ -11,7 +27,7 @@ html {
 }
 
 body {
-  @apply font-sans text-sm antialiased font-normal leading-normal xl:text-base;
+  @apply font-sans text-sm antialiased font-normal leading-normal xl:text-base text-stone-900;
 }
 
 .container {
@@ -36,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply p-0 mb-6 font-bold leading-tight;
+  @apply p-0 mb-6 font-serif font-normal leading-tight;
 }
 
 h1 {
