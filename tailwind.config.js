@@ -1,6 +1,9 @@
 module.exports = {
   mode: "jit",
   content: ["./src/**/*.js"],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     fontSize: {
       "2xs": "1.4rem",

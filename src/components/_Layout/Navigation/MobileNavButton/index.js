@@ -9,7 +9,7 @@ export default function MobileNavButton(props) {
     <button
       aria-label="Navigation menu button"
       tabIndex={0}
-      className={`bg-black text-white absolute top-0 right-0 z-50 p-2 m-4 lg:hidden text-2xl`}
+      className={` text-olive-500 p-2 lg:hidden text-xl rounded-2xl border-2 border-olive-500`}
       onClick={() => {
         setMobileNavOpen(!mobileNavOpen)
       }}

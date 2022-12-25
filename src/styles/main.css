@@ -27,7 +27,11 @@ html {
 }
 
 body {
-  @apply font-sans text-sm antialiased font-normal leading-normal xl:text-base text-stone-900;
+  @apply font-sans text-sm antialiased font-normal leading-normal xl:text-base text-stone-700;
+  &:before {
+    content: '';
+    @apply block w-full h-40 lg:h-80;
+  }
 }
 
 .container {

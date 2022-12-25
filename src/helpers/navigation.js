@@ -4,12 +4,12 @@ const primaryNavigation = [
     url: "/",
   },
   {
-    name: "About",
-    url: "/about/",
+    name: "Our Story",
+    url: "/our-story/",
   },
   {
-    name: "Contact",
-    url: "/contact/",
+    name: "Bookings",
+    url: "/bookings/",
   },
 ]
 
