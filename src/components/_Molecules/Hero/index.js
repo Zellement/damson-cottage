@@ -7,7 +7,7 @@ export default function Hero(props) {
   const { post } = props || {}
   console.log(post)
   return (
-    <div className="relative grid grid-cols-12 lg:gap-12 xl:gap-16 before:col-span-12 before:h-[80px] before:md:h-[150px]">
+    <div className="relative grid grid-cols-12 lg:gap-12 xl:gap-16 before:col-span-12 before:h-[80px] before:md:h-[150px] before:lg:h-[120px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={`${post.title}`}
@@ -17,11 +17,11 @@ export default function Hero(props) {
           transition={{ duration: 1 }}
           className="flex flex-col col-span-10 col-start-2 text-4xl lg:col-span-3 lg:col-start-1"
         >
-          <div className="flex flex-col gap-4 my-auto text-center lg:text-left">
+          <div className="flex flex-col gap-4 my-16 text-center lg:my-auto lg:text-left">
             <p className="font-sans text-base text-olive xl:text-lg">
               {post.heroBrow}
             </p>
-            <h1 className="text-4xl xl:text-5xl 2xl:text-6xl">
+            <h1 className="text-4xl leading-normal xl:text-5xl 2xl:text-6xl">
               {post.heroPrimary}
             </h1>
           </div>
@@ -32,7 +32,7 @@ export default function Hero(props) {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25 }}
-          className="col-span-12 col-start-1 lg:col-span-6 lg:col-start-4 max-h-[480px] lg:max-h-full"
+          className="col-span-12 col-start-1 lg:col-span-6 lg:col-start-4 "
         >
           <GatsbyImage
             className="object-cover w-full h-full"

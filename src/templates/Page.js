@@ -50,7 +50,7 @@ export const query = graphql`
       title
       heroPrimary
       heroImage {
-        gatsbyImageData(aspectRatio: 1.3, placeholder: BLURRED)
+        gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
       }
       heroBrow
     }
