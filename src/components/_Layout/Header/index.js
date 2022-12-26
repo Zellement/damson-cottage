@@ -1,15 +1,13 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import Navigation from "../Navigation"
-import MobileNavButton from "../Navigation/MobileNavButton"
+import MobileNavButton from "../Header/MobileNavButton"
 import { StaticImage } from "gatsby-plugin-image"
 import EmailAddress from "../../_Atoms/EmailAddress"
 import Telephone from "../../_Atoms/Telephone"
 import ButtonBooking from "../../_Atoms/Button/ButtonBooking"
+import MobileNavigation from "../Navigation/MobileNavigation"
 
-export default function Header(props) {
-  const { siteTitle } = props || {}
-
+export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
@@ -57,7 +55,7 @@ export default function Header(props) {
             />
           </div>
 
-          <Navigation
+          <MobileNavigation
             mobileNavOpen={mobileNavOpen}
             setMobileNavOpen={setMobileNavOpen}
           />
