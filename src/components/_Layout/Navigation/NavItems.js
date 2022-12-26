@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import primaryNavigation from "/src/helpers/navigation"
-import { AiTwotoneClockCircle } from "react-icons/ai"
+import { BsCircleFill } from "react-icons/bs"
 
 export default function NavItems(props) {
   const { setMobileNavOpen, desktop } = props || {}
@@ -9,7 +9,7 @@ export default function NavItems(props) {
     <ul className={"flex flex-col gap-4"}>
       {primaryNavigation.map((navItem) => {
         return (
-          <li className="">
+          <li className={`${desktop ? "" : "text-xl"}`}>
             <Link
               className="flex flex-row items-center gap-4"
               onClick={() => {
@@ -19,7 +19,7 @@ export default function NavItems(props) {
               to={navItem.url}
             >
               {desktop ? (
-                <AiTwotoneClockCircle className="text-4xs text-stone-400 primaryNav__icon" />
+                <BsCircleFill className="text-4xs text-stone-300 primaryNav__icon" />
               ) : null}
               {navItem.name}
             </Link>

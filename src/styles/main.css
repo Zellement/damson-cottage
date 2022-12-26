@@ -98,5 +98,5 @@ Active Nav Item - Header
 -------------------------- */
 
 .primaryNav-item-is-active .primaryNav__icon {
-  @apply text-olive-500;
+  @apply text-olive-600;
 }

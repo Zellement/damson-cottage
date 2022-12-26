@@ -39,15 +39,17 @@ export default function Header(props) {
               <EmailAddress
                 className="hidden p-4 md:flex hover:text-olive"
                 spanClassName="hidden lg:block"
+                iconClassName=" lg:text-olive"
               />
 
               <Telephone
                 className="hidden p-4 md:flex hover:text-olive"
-                spanClassName="hidden lg:block"
+                spanClassName="hidden lg:block "
+                iconClassName=" lg:text-olive"
               />
             </div>
 
-            <ButtonBooking className="hidden lg:flex" />
+            <ButtonBooking className="hidden md:flex" />
 
             <MobileNavButton
               mobileNavOpen={mobileNavOpen}
