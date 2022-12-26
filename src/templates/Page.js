@@ -1,25 +1,16 @@
 import React from "react"
 import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
-import DesktopNavigation from "../components/_Layout/Navigation/DesktopNavigation"
 import { graphql } from "gatsby"
-import { data } from "autoprefixer"
+import Hero from "../components/_Molecules/Hero"
 
 const TemplatePage = ({ data }) => {
   const post = data.datoCmsPage
   return (
     <>
       <Seo title={post.title} description="Damson Cottage" />
-      <section className="container">
-        <div className="grid grid-cols-12">
-          <h1 className="flex flex-col col-span-10 col-start-2 text-4xl lg:col-span-5 lg:col-start-1">
-            <span className="font-sans text-md">{post.heroBrow}</span>
-            <span>{post.heroPrimary}</span>
-          </h1>
-          <div className="hidden my-auto lg:flex lg:col-start-9 lg:col-span-4">
-            <DesktopNavigation desktop={true} />
-          </div>
-        </div>
+      <section className="container block-padding">
+        <Hero post={post} />
       </section>
 
       <section className="row">
@@ -59,7 +50,7 @@ export const query = graphql`
       title
       heroPrimary
       heroImage {
-        gatsbyImageData
+        gatsbyImageData(aspectRatio: 1.3, placeholder: BLURRED)
       }
       heroBrow
     }

@@ -11,11 +11,11 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-20 w-full border-t-4 border-teal">
+    <header className="fixed top-0 left-0 right-0 z-20 w-full bg-white border-t-4 bg-opacity-80 border-teal backdrop-blur-md">
       <div className="container block-padding">
         <div className="flex items-center justify-between w-full">
           <Link
-            className="flex flex-row items-center gap-4 font-serif text-lg font-bold md:text-xl"
+            className="flex flex-row items-center gap-4 font-serif text-lg md:text-xl"
             to="/"
           >
             <StaticImage
@@ -27,7 +27,7 @@ export default function Header() {
               loading="eager"
             />
             <div className="flex flex-row gap-2 text-2xl">
-              <span className="text-stone-700">Damson</span>
+              <span>Damson</span>
               <span className="text-olive">Cottage</span>
             </div>
           </Link>
