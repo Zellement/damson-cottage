@@ -1,7 +1,7 @@
 import React from "react"
 import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
-// import DesktopNavigation from "../components/_Layout/Navigation/DesktopNavigation"
+import DesktopNavigation from "../components/_Layout/Navigation/DesktopNavigation"
 
 const IndexPage = () => {
   return (
@@ -15,7 +15,7 @@ const IndexPage = () => {
             <span>of the Norfolk Countryside</span>
           </h1>
           <div className="hidden my-auto lg:flex lg:col-start-9 lg:col-span-4">
-            {/* <DesktopNavigation desktop={true} /> */}
+            <DesktopNavigation desktop={true} />
           </div>
         </div>
       </section>

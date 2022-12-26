@@ -8,7 +8,7 @@ export default function DesktopNavigation() {
     <ul className={"flex flex-col gap-4"}>
       {primaryNavigation.map((navItem) => {
         return (
-          <li>
+          <li key={navItem.url}>
             <Link
               className="flex flex-row items-center gap-4"
               activeClassName={"primaryNav-item-is-active"}
