@@ -1,23 +1,19 @@
 import React from "react"
 import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
-import DesktopNavigation from "../components/_Layout/Navigation/DesktopNavigation"
+import { graphql } from "gatsby"
+import Hero from "../components/_Molecules/Hero"
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const post = data.datoCmsHomepage
+
+  console.log(data)
+
   return (
     <>
       <Seo title="Damson Cottage" description="Damson Cottage" />
-      <section className="container">
-        <div className="grid grid-cols-12">
-          <h1 className="flex flex-col col-span-10 col-start-2 text-4xl lg:col-span-5 lg:col-start-1">
-            <span>Traditional B&B</span>
-            <span className="font-sans">nestled in the heart</span>
-            <span>of the Norfolk Countryside</span>
-          </h1>
-          <div className="hidden my-auto lg:flex lg:col-start-9 lg:col-span-4">
-            <DesktopNavigation desktop={true} />
-          </div>
-        </div>
+      <section className="container block-padding">
+        <Hero post={post} homepage={true} />
       </section>
 
       <section className="row">
@@ -48,3 +44,14 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query HomepageQuery {
+    datoCmsHomepage {
+      id
+      heroImage {
+        gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
+      }
+    }
+  }
+`
