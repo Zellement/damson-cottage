@@ -24,14 +24,14 @@ html, body {
 
 html {
   font-size: 62.5%;
-}
-
-body {
-  @apply font-sans text-sm antialiased font-normal leading-normal xl:text-base text-stone-700;
   &:before {
     content: '';
     @apply block w-full h-40 md:h-80;
   }
+}
+
+body {
+  @apply font-sans text-sm antialiased font-normal leading-normal xl:text-base text-stone-700;
 }
 
 .container {

@@ -10,11 +10,11 @@ export default function DesktopNavigation() {
         return (
           <li key={navItem.url}>
             <Link
-              className="flex flex-row items-center gap-4"
+              className="flex flex-row items-center gap-4 group hover:text-teal"
               activeClassName={"primaryNav-item-is-active"}
               to={navItem.url}
             >
-              <BsCircleFill className="text-4xs text-stone-300 primaryNav__icon" />
+              <BsCircleFill className="transition duration-300 text-4xs text-stone-300 primaryNav__icon group-hover:text-teal" />
               {navItem.name}
             </Link>
           </li>
