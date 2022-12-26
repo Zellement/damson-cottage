@@ -11,7 +11,7 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
-    <header class="fixed top-0 left-0 right-0 w-full z-20 border-t-4 border-teal">
+    <header className="fixed top-0 left-0 right-0 z-20 w-full border-t-4 border-teal">
       <div className="container block-padding">
         <div className="flex items-center justify-between w-full">
           <Link
@@ -21,7 +21,7 @@ export default function Header() {
             <StaticImage
               src="../../../images/icon-tree.png"
               alt="Damson Cottage tree icon"
-              width="120"
+              width={120}
               className="w-full max-w-[60px] md:max-w-full"
               placeholder="blurred"
               loading="eager"

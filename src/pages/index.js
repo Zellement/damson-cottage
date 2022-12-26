@@ -11,7 +11,7 @@ const IndexPage = () => {
         <div className="grid grid-cols-12">
           <h1 className="flex flex-col col-span-10 col-start-2 text-4xl lg:col-span-5 lg:col-start-1">
             <span>Traditional B&B</span>
-            <span class="font-sans">nestled in the heart</span>
+            <span className="font-sans">nestled in the heart</span>
             <span>of the Norfolk Countryside</span>
           </h1>
           <div className="hidden my-auto lg:flex lg:col-start-9 lg:col-span-4">
