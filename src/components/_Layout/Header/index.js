@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import MobileNavButton from "../Header/MobileNavButton"
 import { StaticImage } from "gatsby-plugin-image"
@@ -9,24 +9,30 @@ import MobileNavigation from "../Navigation/MobileNavigation"
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const scrollDirection = useScrollDirection()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-20 w-full bg-white border-t-4 bg-opacity-80 border-teal backdrop-blur-md">
+    <header
+      className={`fixed top-0 left-0 right-0 z-20 w-full bg-white transition-transform duration-700 border-t-4 bg-opacity-80 border-teal backdrop-blur-md`}
+    >
       <div className="container block-padding">
         <div className="flex items-center justify-between w-full">
-          <Link
-            className="flex flex-row items-center gap-4 font-serif text-lg md:text-xl"
-            to="/"
-          >
+          <Link className="flex flex-row items-center gap-4 font-serif" to="/">
             <StaticImage
               src="../../../images/icon-tree.png"
               alt="Damson Cottage tree icon"
               width={120}
-              className="w-full max-w-[60px] md:max-w-full"
+              className={`transition-all ${
+                scrollDirection === "down" ? "w-24" : "w-32 md:w-40 lg:w-48"
+              }`}
               placeholder="blurred"
               loading="eager"
             />
-            <div className="flex flex-row gap-2 text-2xl">
+            <div
+              className={`flex flex-row gap-2 transition-all duration-1000 ${
+                scrollDirection === "down" ? "text-lg" : "text-2xl "
+              }`}
+            >
               <span>Damson</span>
               <span className="text-olive">Cottage</span>
             </div>
@@ -63,4 +69,30 @@ export default function Header() {
       </div>
     </header>
   )
+}
+
+function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = useState(null)
+
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset
+
+    const updateScrollDirection = () => {
+      const scrollY = window.pageYOffset
+      const direction = scrollY > lastScrollY ? "down" : "up"
+      if (
+        direction !== scrollDirection &&
+        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
+      ) {
+        setScrollDirection(direction)
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0
+    }
+    window.addEventListener("scroll", updateScrollDirection) // add event listener
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection) // clean up
+    }
+  }, [scrollDirection])
+
+  return scrollDirection
 }
