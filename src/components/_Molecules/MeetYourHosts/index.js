@@ -21,7 +21,7 @@ export default function MeetYourHosts() {
 
   return (
     <section className="row">
-      <div className="container grid grid-cols-12 gap-16 block-padding md:gap-12 xl:gap-32">
+      <div className="container grid grid-cols-12 block-padding md:gap-12 xl:gap-32">
         <div className="col-span-12 md:col-span-4">
           <GatsbyImage
             className="object-cover w-full h-full"
@@ -29,7 +29,7 @@ export default function MeetYourHosts() {
             alt={data.datoCmsGlobalOption.image.alt}
           />
         </div>
-        <div className="col-span-12 md:col-span-8 md:col-start-5">
+        <div className="col-span-12 mt-16 md:col-span-8 md:col-start-5 md:m-0">
           <div className="relative">
             <EmmaMatt className="w-full" />
             <h2 className="absolute text-[8.2vw] -translate-y-4 md:text-[5.5vw] top-0 left-0 text-olive md:-translate-y-4 translate-x-1/3 md:translate-x-1/3 xl:text-[5vw]">
