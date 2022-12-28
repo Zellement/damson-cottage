@@ -3,6 +3,7 @@ import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
 import Hero from "../components/_Molecules/Hero"
+import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
 
 const TemplatePage = ({ data }) => {
   const post = data.datoCmsPage
@@ -36,6 +37,7 @@ const TemplatePage = ({ data }) => {
           </div>
         </div>
       </section>
+      <MeetYourHosts />
     </>
   )
 }
@@ -51,6 +53,7 @@ export const query = graphql`
       heroPrimary
       heroImage {
         gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
+        alt
       }
       heroBrow
     }
