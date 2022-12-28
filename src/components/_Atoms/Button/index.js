@@ -6,7 +6,7 @@ export default function Button(props) {
   const { url, label } = props || {}
 
   return (
-    <Link to={url} className={`${styles.btn} ${styles["btn__red"]}`}>
+    <Link to={url} className={`${styles.btn}`}>
       {label}
     </Link>
   )

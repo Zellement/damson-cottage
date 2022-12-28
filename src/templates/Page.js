@@ -4,6 +4,7 @@ import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
 import Hero from "../components/_Molecules/Hero"
 import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
+import TextContent from "../components/_Molecules/TextContent"
 
 const TemplatePage = ({ data }) => {
   const post = data.datoCmsPage
@@ -15,26 +16,27 @@ const TemplatePage = ({ data }) => {
       </section>
 
       <section className="row">
-        <div className="container block-padding">
-          <Button url={"#"} label={"Button"} />
+        {post.blocks.map((block) => {
+          if (block.model.apiKey === "block_text_content") {
+            return <TextContent block={block} />
+          }
+        })}
+        <div className="content">
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
 
-          <div className="content">
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
+          <h2>Lorem ipsum dolor sit amet</h2>
 
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-          </div>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
         </div>
       </section>
       <MeetYourHosts />
@@ -56,6 +58,19 @@ export const query = graphql`
         alt
       }
       heroBrow
+      blocks {
+        ... on DatoCmsBlockTextContent {
+          id
+          content
+          imageS {
+            alt
+            gatsbyImageData
+          }
+          model {
+            apiKey
+          }
+        }
+      }
     }
   }
 `
