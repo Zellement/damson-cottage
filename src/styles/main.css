@@ -46,6 +46,10 @@ a {
   @apply duration-300;
 }
 
+.text-shadow--white {
+  text-shadow: 2px 2px 5px #fff;
+}
+
 /* --------------------------
 Headings
 -------------------------- */

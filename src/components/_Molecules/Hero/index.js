@@ -7,7 +7,7 @@ export default function Hero(props) {
   const { post, homepage } = props || {}
   console.log(post)
   return (
-    <div className="relative grid grid-cols-12 lg:gap-12 xl:gap-16 before:col-span-12 before:h-[80px] before:md:h-[150px] before:lg:h-[120px]">
+    <div className="relative grid grid-cols-12 lg:gap-12 xl:gap-16 before:col-span-12 before:h-[100px] before:md:h-[130px] before:lg:h-[120px]">
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -33,14 +33,14 @@ export default function Hero(props) {
             className="flex flex-col col-span-10 col-start-2 text-4xl lg:col-span-3 lg:col-start-1"
           >
             <div className="relative flex h-full my-16 text-center lg:my-auto lg:text-left">
-              <p className="flex flex-col w-full leading-none lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2">
+              <p className="flex flex-col w-full lg:leading-none lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2 text-shadow--white">
                 <span className="relative z-50 font-serif text-5xl lg:whitespace-nowrap xl:text-6xl">
                   Tranquil B&B
                 </span>
-                <span className="text-xl leading-normal lg:whitespace-nowrap translate-x-[12rem] xl:translate-x-[14rem] xl:text-2xl">
+                <span className="text-xl leading-normal lg:whitespace-nowrap lg:translate-x-[12rem] xl:translate-x-[14rem] xl:text-2xl text-teal">
                   nestled in the heart
                 </span>
-                <span className="font-serif text-4xl xl:text-5xl leading-normal lg:whitespace-nowrap translate-x-[6rem]">
+                <span className="font-serif text-4xl xl:text-5xl leading-normal lg:whitespace-nowrap lg:translate-x-[6rem]">
                   of the Norfolk Countryside
                 </span>
               </p>
