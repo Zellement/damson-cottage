@@ -2,6 +2,7 @@ import React from "react"
 import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
+import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
 import Hero from "../components/_Molecules/Hero"
 
 const IndexPage = ({ data }) => {
@@ -129,6 +130,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
+      <MeetYourHosts />
     </>
   )
 }
