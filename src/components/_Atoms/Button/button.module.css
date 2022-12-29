@@ -1,6 +1,6 @@
 .btn {
-  @apply inline-flex px-6 py-5 font-serif border-2 border-current rounded-xl;
+  @apply inline-flex px-6 py-5 font-serif border-2 border-current rounded-xl hover:text-olive;
   &__booking {
-    @apply text-white bg-teal-500 hover:bg-teal-700 border-teal hover:border-teal-700;
+    @apply text-white bg-teal-500 hover:bg-teal-700 border-teal hover:border-teal-700 hover:text-white;
   }
 }

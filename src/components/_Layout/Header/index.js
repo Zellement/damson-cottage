@@ -17,12 +17,15 @@ export default function Header() {
     >
       <div className="container block-padding">
         <div className="flex items-center justify-between w-full">
-          <Link className="flex flex-row items-center gap-4 font-serif" to="/">
+          <Link
+            className="flex flex-row items-center gap-4 font-serif group"
+            to="/"
+          >
             <StaticImage
               src="../../../images/icon-tree.png"
               alt="Damson Cottage tree icon"
               width={120}
-              className={`transition-all ${
+              className={`transition-all  group-hover:brightness-110 group-hover:opacity-80 ${
                 scrollDirection === "down" ? "w-24" : "w-32 md:w-40 lg:w-48"
               }`}
               placeholder="blurred"
@@ -33,8 +36,12 @@ export default function Header() {
                 scrollDirection === "down" ? "text-lg" : "text-2xl "
               }`}
             >
-              <span>Damson</span>
-              <span className="text-olive">Cottage</span>
+              <span className="transition duration-300 group-hover:text-teal-600">
+                Damson
+              </span>
+              <span className="transition duration-300 text-olive group-hover:text-teal-600">
+                Cottage
+              </span>
             </div>
           </Link>
 
