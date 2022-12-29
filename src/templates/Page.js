@@ -15,30 +15,13 @@ const TemplatePage = ({ data }) => {
         <Hero post={post} />
       </section>
 
-      <section className="row">
+      <div className="flex flex-col gap-16 row">
         {post.blocks.map((block) => {
           if (block.model.apiKey === "block_text_content") {
             return <TextContent key={block.id} block={block} />
           }
         })}
-        <div className="content">
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-
-          <h2>Lorem ipsum dolor sit amet</h2>
-
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-        </div>
-      </section>
+      </div>
       <MeetYourHosts />
     </>
   )
@@ -62,6 +45,7 @@ export const query = graphql`
         ... on DatoCmsBlockTextContent {
           id
           content
+          copyFirst
           imageS {
             alt
             gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
