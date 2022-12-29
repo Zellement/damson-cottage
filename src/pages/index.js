@@ -4,6 +4,9 @@ import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
 import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
 import Hero from "../components/_Molecules/Hero"
+import TextContent from "../components/_Molecules/TextContent"
+import Gallery from "../components/_Molecules/Gallery"
+import Cards from "../components/_Molecules/Cards"
 
 const IndexPage = ({ data }) => {
   const post = data.datoCmsHomepage
@@ -17,119 +20,18 @@ const IndexPage = ({ data }) => {
         <Hero post={post} homepage={true} />
       </section>
 
-      <section className="row">
-        <div className="container block-padding">
-          <Button url={"#"} label={"Button"} />
-
-          <div className="content">
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <h2>Lorem ipsum dolor sit amet</h2>
-
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div className="flex flex-col gap-16 row">
+        {post.blocks.map((block) => {
+          if (block.model?.apiKey === "block_text_content") {
+            return <TextContent key={block.id} block={block} />
+          } else if (block.model?.apiKey === "block_gallery") {
+            return <Gallery key={block.id} block={block} />
+          } else if (block.model?.apiKey === "block_card") {
+            return <Cards key={block.id} block={block} />
+          }
+          return null
+        })}
+      </div>
       <MeetYourHosts />
     </>
   )
@@ -143,6 +45,50 @@ export const query = graphql`
       id
       heroImage {
         gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
+      }
+      blocks {
+        ... on DatoCmsBlockTextContent {
+          id
+          content
+          copyFirst
+          imageS {
+            alt
+            gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
+            originalId
+          }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsBlockGallery {
+          id
+          model {
+            apiKey
+          }
+          images {
+            gatsbyImageData(aspectRatio: 1.8, placeholder: BLURRED)
+          }
+        }
+        ... on DatoCmsBlockCard {
+          id
+          model {
+            apiKey
+          }
+          cards {
+            brow
+            image {
+              alt
+              gatsbyImageData(aspectRatio: 0.8, placeholder: BLURRED)
+              title
+              url
+            }
+            link {
+              slug
+            }
+            useBookingsButton
+            buttonText
+          }
+        }
       }
     }
   }

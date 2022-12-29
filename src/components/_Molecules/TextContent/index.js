@@ -4,15 +4,14 @@ import EmblaCarousel from "../EmblaCarousel"
 
 export default function TextContent(props) {
   const { block } = props || {}
-  console.log(block)
   return (
     <section className={`container grid grid-cols-12 gap-12 block-padding`}>
       <div
-        className={`col-span-12 content lg:col-span-4  lg:row-start-1 ${
+        className={`col-span-12 flex content lg:col-span-4  lg:row-start-1 ${
           block.copyFirst ? "lg:col-start-2" : "lg:col-start-7"
         }`}
       >
-        <HTMLContent content={block.content} />
+        <HTMLContent className="my-auto" content={block.content} />
       </div>
       <div
         className={`col-span-12 lg:col-span-4  lg:row-start-1 ${
