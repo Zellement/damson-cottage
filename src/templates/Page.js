@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import Hero from "../components/_Molecules/Hero"
 import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
 import TextContent from "../components/_Molecules/TextContent"
+import Gallery from "../components/_Molecules/Gallery"
 
 const TemplatePage = ({ data }) => {
   const post = data.datoCmsPage
@@ -19,6 +20,8 @@ const TemplatePage = ({ data }) => {
         {post.blocks.map((block) => {
           if (block.model?.apiKey === "block_text_content") {
             return <TextContent key={block.id} block={block} />
+          } else if (block.model?.apiKey === "block_gallery") {
+            return <Gallery key={block.id} block={block} />
           }
         })}
       </div>
@@ -53,6 +56,15 @@ export const query = graphql`
           }
           model {
             apiKey
+          }
+        }
+        ... on DatoCmsBlockGallery {
+          id
+          model {
+            apiKey
+          }
+          images {
+            gatsbyImageData(aspectRatio: 1.8, placeholder: BLURRED)
           }
         }
       }

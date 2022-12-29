@@ -7,7 +7,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
 export const PrevButton = ({ enabled, onClick }) => (
   <button
-    className="absolute top-0 left-0 z-10 p-2 text-2xl transition-all duration-300 bg-white cursor-pointer focus:outline-none focus:bg-red-500 group max-w-20 embla__button embla__button--prev"
+    className="absolute bottom-0 left-0 z-10 p-2 text-2xl transition-all duration-300 bg-white cursor-pointer focus:outline-none focus:bg-teal-200 group max-w-20 embla__button embla__button--prev"
     onClick={onClick}
     disabled={!enabled}
   >
@@ -17,7 +17,7 @@ export const PrevButton = ({ enabled, onClick }) => (
 
 export const NextButton = ({ enabled, onClick }) => (
   <button
-    className="absolute top-0 right-0 z-10 p-2 text-2xl transition-all duration-300 bg-white cursor-pointer focus:outline-none focus:bg-red-500 group max-w-20 embla__button embla__button--next "
+    className="absolute bottom-0 left-0 z-10 p-2 ml-20 text-2xl transition-all duration-300 bg-white cursor-pointer focus:outline-none focus:bg-teal-200 group max-w-20 embla__button embla__button--next "
     onClick={onClick}
     disabled={!enabled}
   >
