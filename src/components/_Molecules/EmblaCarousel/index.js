@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
-import PropTypes from "prop-types"
 import { GatsbyImage } from "gatsby-plugin-image"
 import useEmblaCarousel from "embla-carousel-react"
-import { useStaticQuery, graphql } from "gatsby"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 
 export const PrevButton = ({ enabled, onClick }) => (

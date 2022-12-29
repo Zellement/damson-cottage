@@ -1,5 +1,4 @@
 import React from "react"
-import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
 import Hero from "../components/_Molecules/Hero"
@@ -23,6 +22,7 @@ const TemplatePage = ({ data }) => {
           } else if (block.model?.apiKey === "block_gallery") {
             return <Gallery key={block.id} block={block} />
           }
+          return null
         })}
       </div>
       <MeetYourHosts />
