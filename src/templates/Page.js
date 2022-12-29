@@ -17,7 +17,7 @@ const TemplatePage = ({ data }) => {
 
       <div className="flex flex-col gap-16 row">
         {post.blocks.map((block) => {
-          if (block.model.apiKey === "block_text_content") {
+          if (block.model?.apiKey === "block_text_content") {
             return <TextContent key={block.id} block={block} />
           }
         })}
