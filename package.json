@@ -6,6 +6,7 @@
   "author": "Dan Farrow <dan@zellement>",
   "dependencies": {
     "@fontsource/open-sans": "^4.5.13",
+    "embla-carousel-react": "^7.0.5",
     "framer-motion": "^8.0.2",
     "gatsby": "^5.3.3",
     "gatsby-image": "^3.7.1",

@@ -18,7 +18,7 @@ const TemplatePage = ({ data }) => {
       <section className="row">
         {post.blocks.map((block) => {
           if (block.model.apiKey === "block_text_content") {
-            return <TextContent block={block} />
+            return <TextContent key={block.id} block={block} />
           }
         })}
         <div className="content">
@@ -64,7 +64,8 @@ export const query = graphql`
           content
           imageS {
             alt
-            gatsbyImageData
+            gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
+            originalId
           }
           model {
             apiKey
