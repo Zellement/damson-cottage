@@ -5,7 +5,6 @@ import EmblaCarousel from "../EmblaCarousel"
 
 export default function TextContent(props) {
   const { block } = props || {}
-  console.log(block)
   return (
     <section className={`container grid grid-cols-12 gap-12 block-padding`}>
       <div

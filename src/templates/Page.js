@@ -2,7 +2,6 @@ import React from "react"
 import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
 import Hero from "../components/_Molecules/Hero"
-import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
 import TextContent from "../components/_Molecules/TextContent"
 import Cards from "../components/_Molecules/Cards"
 import Gallery from "../components/_Molecules/Gallery"
@@ -79,6 +78,7 @@ export const query = graphql`
             apiKey
           }
           images {
+            alt
             gatsbyImageData(aspectRatio: 1.8, placeholder: BLURRED)
           }
         }
@@ -89,6 +89,7 @@ export const query = graphql`
           }
           cards {
             brow
+            id
             image {
               alt
               gatsbyImageData(aspectRatio: 0.8, placeholder: BLURRED)

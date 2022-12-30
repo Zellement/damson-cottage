@@ -10,8 +10,6 @@ import Cards from "../components/_Molecules/Cards"
 const IndexPage = ({ data }) => {
   const post = data.datoCmsHomepage
 
-  console.log(data)
-
   return (
     <>
       <Seo title="Damson Cottage" description="Damson Cottage" />
@@ -89,6 +87,7 @@ export const query = graphql`
           }
           cards {
             brow
+            id
             image {
               alt
               gatsbyImageData(aspectRatio: 0.8, placeholder: BLURRED)

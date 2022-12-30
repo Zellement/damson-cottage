@@ -5,7 +5,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Hero(props) {
   const { post, homepage } = props || {}
-  console.log(post)
   return (
     <div className="relative grid grid-cols-12 lg:gap-12 xl:gap-16 before:col-span-12 before:h-[100px] before:md:h-[130px] before:lg:h-[120px]">
       <AnimatePresence>
