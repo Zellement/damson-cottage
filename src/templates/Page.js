@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Hero from "../components/_Molecules/Hero"
 import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
 import TextContent from "../components/_Molecules/TextContent"
+import Cards from "../components/_Molecules/Cards"
 import Gallery from "../components/_Molecules/Gallery"
 
 const TemplatePage = ({ data }) => {
@@ -21,11 +22,12 @@ const TemplatePage = ({ data }) => {
             return <TextContent key={block.id} block={block} />
           } else if (block.model?.apiKey === "block_gallery") {
             return <Gallery key={block.id} block={block} />
+          } else if (block.model?.apiKey === "block_card") {
+            return <Cards key={block.id} block={block} />
           }
           return null
         })}
       </div>
-      <MeetYourHosts />
     </>
   )
 }
@@ -57,6 +59,19 @@ export const query = graphql`
           model {
             apiKey
           }
+          linkToAnotherPage {
+            ... on DatoCmsPage {
+              id
+              title
+              slug
+            }
+            ... on DatoCmsHomepage {
+              id
+              model {
+                apiKey
+              }
+            }
+          }
         }
         ... on DatoCmsBlockGallery {
           id
@@ -65,6 +80,26 @@ export const query = graphql`
           }
           images {
             gatsbyImageData(aspectRatio: 1.8, placeholder: BLURRED)
+          }
+        }
+        ... on DatoCmsBlockCard {
+          id
+          model {
+            apiKey
+          }
+          cards {
+            brow
+            image {
+              alt
+              gatsbyImageData(aspectRatio: 0.8, placeholder: BLURRED)
+              title
+              url
+            }
+            link {
+              slug
+            }
+            useBookingsButton
+            buttonText
           }
         }
       }

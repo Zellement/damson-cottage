@@ -1,9 +1,11 @@
 import React from "react"
 import HTMLContent from "../../../components/_Atoms/Text"
+import Button from "../../_Atoms/Button"
 import EmblaCarousel from "../EmblaCarousel"
 
 export default function TextContent(props) {
   const { block } = props || {}
+  console.log(block)
   return (
     <section className={`container grid grid-cols-12 gap-12 block-padding`}>
       <div
@@ -11,7 +13,24 @@ export default function TextContent(props) {
           block.copyFirst ? "lg:col-start-2" : "lg:col-start-7"
         }`}
       >
-        <HTMLContent className="my-auto" content={block.content} />
+        <div className="flex flex-col w-full gap-8 my-auto">
+          <HTMLContent className="w-full" content={block.content} />
+          {block.linkToAnotherPage ? (
+            block.linkToAnotherPage.slug ? (
+              <Button
+                className="self-start"
+                url={block.linkToAnotherPage.slug}
+                label={block.linkToAnotherPage.title}
+              />
+            ) : (
+              <Button
+                className="self-start"
+                url="/"
+                label="Go to the Homepage"
+              />
+            )
+          ) : null}
+        </div>
       </div>
       <div
         className={`col-span-12 lg:col-span-4  lg:row-start-1 ${

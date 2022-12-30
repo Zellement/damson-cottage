@@ -33,7 +33,7 @@ export default function Hero(props) {
             className="flex flex-col col-span-10 col-start-2 text-4xl lg:col-span-3 lg:col-start-1"
           >
             <div className="relative flex h-full my-16 text-center lg:my-auto lg:text-left">
-              <p className="flex flex-col w-full lg:leading-none lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2 text-shadow--white">
+              <h1 className="flex flex-col w-full lg:leading-none lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2 text-shadow--white">
                 <span className="relative z-50 font-serif text-5xl lg:whitespace-nowrap xl:text-6xl">
                   Tranquil B&B
                 </span>
@@ -43,7 +43,7 @@ export default function Hero(props) {
                 <span className="font-serif text-4xl xl:text-5xl leading-normal lg:whitespace-nowrap lg:translate-x-[6rem]">
                   of the Norfolk Countryside
                 </span>
-              </p>
+              </h1>
             </div>
           </motion.div>
         </AnimatePresence>

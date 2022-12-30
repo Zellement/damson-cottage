@@ -1,5 +1,4 @@
 import React from "react"
-import Button from "../components/_Atoms/Button"
 import Seo from "../components/_Seo"
 import { graphql } from "gatsby"
 import MeetYourHosts from "../components/_Molecules/MeetYourHosts"
@@ -45,6 +44,7 @@ export const query = graphql`
       id
       heroImage {
         gatsbyImageData(aspectRatio: 1.2, placeholder: BLURRED)
+        alt
       }
       blocks {
         ... on DatoCmsBlockTextContent {
@@ -58,6 +58,19 @@ export const query = graphql`
           }
           model {
             apiKey
+          }
+          linkToAnotherPage {
+            ... on DatoCmsPage {
+              id
+              slug
+              title
+            }
+            ... on DatoCmsHomepage {
+              id
+              model {
+                apiKey
+              }
+            }
           }
         }
         ... on DatoCmsBlockGallery {
